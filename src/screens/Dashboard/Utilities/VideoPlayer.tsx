@@ -15,13 +15,10 @@ import { os } from "../../../constants/Platform";
 
 const VideoPlayer = ({ route, theme, navigation }: any) => {
   const videoRef = useRef(null);
-  const [ISTStartTime] = useState(new Date());
-  const { data, module, body, userid, downloadState } = route.params;
+  const { data, downloadState } = route.params;
   const [loader, setloader] = useState(false);
   const [showButton, setShowButton] = useState(true);
-  const [paused, setpaused] = useState(false);
   const opacity = useRef<any>(new Animated.Value(0)).current;
-  const [playtime, setPlaytime] = useState<string | undefined>(undefined);
 
   useEffect(() => {
     Animated.timing(opacity, {
@@ -82,16 +79,9 @@ const VideoPlayer = ({ route, theme, navigation }: any) => {
     return () => backHandler.remove();
   }, []);
 
-  const id = 198;
-
   const Goback = async () => {
     PORTRAIT();
     navigation.replace("VideoDetails");
-  };
-
-  const onPlayblack = async (status: any) => {
-    console.log(status);
-    setPlaytime(status.playableDurationMillis);
   };
 
   return (

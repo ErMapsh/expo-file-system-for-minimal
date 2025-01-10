@@ -198,7 +198,6 @@ const VideoDetails = ({ theme, navigation, route }: any) => {
         updateDownloadState({ id: data.id, newState: "DOWNLOADING" });
         const res: FileSystem.FileSystemDownloadResult | undefined =
           await downloadResumable?.current?.downloadAsync();
-        console.warn("res in handledonwload:", res?.uri);
 
         if (res?.uri) {
           dispatch(
