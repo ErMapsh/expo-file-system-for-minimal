@@ -86,7 +86,7 @@ const VideoPlayer = ({ route, theme, navigation }: any) => {
 
   const Goback = async () => {
     PORTRAIT();
-    navigation.goBack();
+    navigation.replace("VideoDetails");
   };
 
   const onPlayblack = async (status: any) => {
